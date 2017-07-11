@@ -36,8 +36,7 @@ let formData = [
     "label": "Select Language",
     "id": "user-language",
     "icon": "",
-    "options": [
-      {
+    "options": [{
         "label": "English",
         "value": "EN"
       },
@@ -85,33 +84,97 @@ let formData = [
 // HINTS:
 // As you can see, we access the first element in the array
 // with [0] and then grab the property "label" using the "." operator
-( function(){
+(function() {
   // Select the first element from the array
-  let first = formData[ 0 ];
+  let first = formData[0];
   // Log the first object
-  console.log( first );
+  console.log(first);
   // Log the string "First Name"
-  console.log( first.label );
-} )();
+  console.log(first.label);
+})();
 
 
 // -------- Your Code Goes Below this Line --------
 
 
-let form = document.querySelector( ".fields")
+let form = document.querySelector(".fields")
 
 
 for (var i = 0; i < formData.length; i++) {
-  let input = document.createElement( "input" );
 
-  input.setAttribute("type", formData[i].type);
-  input.setAttribute("placeholder", formData[i].label);
-  input.setAttribute("id", formData[i].id);
-  input.setAttribute("icon", formData[i].icon);
-  input.setAttribute("options", formData[i].options);
 
-  form.appendChild(input);
+  if (formData[i].type === "tel" || formData[i].type === "text" || formData[i].type === "email") {
 
-  console.log(input);
+    let input = document.createElement("input");
+
+    input.setAttribute("type", formData[i].type);
+    input.setAttribute("placeholder", formData[i].label);
+    input.setAttribute("id", formData[i].id);
+
+
+    form.appendChild(input);
+
+
+  }
+
+  else if (formData[i].type === "select") {
+    let select = document.createElement("select");
+    let optionText = document.createElement("option");
+    optionText.setAttribute("label", "Select language...")
+    select.appendChild(optionText);
+
+    for (var z = 0; z < formData[i].options.length; z++) {
+      let option = document.createElement("option")
+      option.setAttribute("label", formData[i].options[z].label);
+      option.setAttribute("value", formData[i].options[z].value);
+      select.appendChild(option)
+      form.appendChild(select);
+    }
+form.appendChild(select);
+  }
+
+  else {
+    let textarea = document.createElement("textarea");
+
+    textarea.setAttribute("select", formData[i].type);
+    textarea.setAttribute("placeholder", formData[i].label);
+    textarea.setAttribute("id", formData[i].id);
+
+
+    form.appendChild(textarea);
+  }
 
 }
+
+
+
+
+// for (var i = 0; i < formData.length; i++) {
+//   let input = document.createElement("input");
+//   // let textArea = document.createElement( "textarea" );
+//   // let select = document.createElement( "select" );
+//
+//   input.setAttribute("type", formData[i].type);
+//   input.setAttribute("placeholder", formData[i].label);
+//   input.setAttribute("id", formData[i].id);
+//   input.setAttribute("icon", formData[i].icon);
+//   input.setAttribute("options", formData[i].options);
+//
+//
+//   if (formData[i].type === "select") {
+//     for (var i = 0; i < formData.length; i++) {
+//       let select = document.createElement("select");
+//       select.setAttribute("select", formData[i].type);
+//       select.setAttribute("placeholder", formData[i].label);
+//       select.setAttribute("id", formData[i].id);
+//
+//       select.setAttribute("options", formData[i].options);
+//     }
+//
+//   }
+//
+//
+//
+//   form.appendChild(input);
+//
+//   console.log(input);
