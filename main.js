@@ -98,3 +98,20 @@ let formData = [
 // -------- Your Code Goes Below this Line --------
 
 
+let form = document.querySelector( ".fields")
+
+
+for (var i = 0; i < formData.length; i++) {
+  let input = document.createElement( "input" );
+
+  input.setAttribute("type", formData[i].type);
+  input.setAttribute("placeholder", formData[i].label);
+  input.setAttribute("id", formData[i].id);
+  input.setAttribute("icon", formData[i].icon);
+  input.setAttribute("options", formData[i].options);
+
+  form.appendChild(input);
+
+  console.log(input);
+
+}
