@@ -103,6 +103,7 @@ let form = document.querySelector(".fields")
 for (var i = 0; i < formData.length; i++) {
 
 
+
   if (formData[i].type === "tel" || formData[i].type === "text" || formData[i].type === "email") {
 
     let input = document.createElement("input");
@@ -115,9 +116,7 @@ for (var i = 0; i < formData.length; i++) {
     form.appendChild(input);
 
 
-  }
-
-  else if (formData[i].type === "select") {
+  } else if (formData[i].type === "select") {
     let select = document.createElement("select");
     let optionText = document.createElement("option");
     optionText.setAttribute("label", "Select language...")
@@ -130,10 +129,8 @@ for (var i = 0; i < formData.length; i++) {
       select.appendChild(option)
       form.appendChild(select);
     }
-form.appendChild(select);
-  }
 
-  else {
+  } else {
     let textarea = document.createElement("textarea");
 
     textarea.setAttribute("select", formData[i].type);
@@ -145,36 +142,3 @@ form.appendChild(select);
   }
 
 }
-
-
-
-
-// for (var i = 0; i < formData.length; i++) {
-//   let input = document.createElement("input");
-//   // let textArea = document.createElement( "textarea" );
-//   // let select = document.createElement( "select" );
-//
-//   input.setAttribute("type", formData[i].type);
-//   input.setAttribute("placeholder", formData[i].label);
-//   input.setAttribute("id", formData[i].id);
-//   input.setAttribute("icon", formData[i].icon);
-//   input.setAttribute("options", formData[i].options);
-//
-//
-//   if (formData[i].type === "select") {
-//     for (var i = 0; i < formData.length; i++) {
-//       let select = document.createElement("select");
-//       select.setAttribute("select", formData[i].type);
-//       select.setAttribute("placeholder", formData[i].label);
-//       select.setAttribute("id", formData[i].id);
-//
-//       select.setAttribute("options", formData[i].options);
-//     }
-//
-//   }
-//
-//
-//
-//   form.appendChild(input);
-//
-//   console.log(input);

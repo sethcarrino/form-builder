@@ -29,6 +29,7 @@
 .wrapper .fields textarea,
 .wrapper .fields select
  {
+  font-family: 'font-awesome';
   padding-left: 15px;
   width: 500px;
   height: 35px;
